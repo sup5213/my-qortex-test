@@ -1,0 +1,351 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Qortex test",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/": {},
+        "/api/main": {
+            "get": {
+                "tags": [
+                    "Исполнители"
+                ],
+                "summary": "Получить список исполнителей",
+                "operationId": "82ea5e9b89ad47fd82b3287c8748ba5d",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Кино"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "timestamp",
+                                                        "example": null
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "timestamp",
+                                                        "example": null
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "timestamp",
+                                                        "example": null
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/main/albums/{artist}": {
+            "get": {
+                "tags": [
+                    "Альбомы"
+                ],
+                "summary": "Получить список альбомов конкретного исполнителя",
+                "operationId": "7510dad8f51115fc723c945c5ba76a75",
+                "parameters": [
+                    {
+                        "name": "artist",
+                        "in": "path",
+                        "description": "id исполнителя",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Начальник камчатки"
+                                                    },
+                                                    "year": {
+                                                        "type": "integer",
+                                                        "example": 1984
+                                                    },
+                                                    "artist_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "created_at": {
+                                                        "type": "timestamp",
+                                                        "example": null
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "timestamp",
+                                                        "example": null
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "timestamp",
+                                                        "example": null
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/main/albums/create": {
+            "post": {
+                "tags": [
+                    "Альбомы"
+                ],
+                "summary": "Создать новый альбом",
+                "operationId": "12058eb0c97c93d07f4db149e9024a89",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Исполнитель песен"
+                                            },
+                                            "alb_name": {
+                                                "type": "string",
+                                                "example": "Первый альбом исполнителя песен-2000"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Первый альбом исполнителя песен"
+                                                    },
+                                                    "year": {
+                                                        "type": "integer",
+                                                        "example": 2000
+                                                    },
+                                                    "artist_id": {
+                                                        "type": "integer",
+                                                        "example": 0
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "timestamp",
+                                                        "example": null
+                                                    },
+                                                    "created_at": {
+                                                        "type": "timestamp",
+                                                        "example": null
+                                                    },
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 26
+                                                    },
+                                                    "artist_name": {
+                                                        "type": "string",
+                                                        "example": "Исполнитель песен"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/main/songs/{album}": {
+            "get": {
+                "tags": [
+                    "Песни"
+                ],
+                "summary": "Получить список песен из альбома",
+                "operationId": "a9ac842f6fc781b771703e6920d042f8",
+                "parameters": [
+                    {
+                        "name": "album",
+                        "in": "path",
+                        "description": "id альбома",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 3
+                                                    },
+                                                    "title": {
+                                                        "type": "string",
+                                                        "example": "Алюминиевые огурцы"
+                                                    },
+                                                    "track_num": {
+                                                        "type": "integer",
+                                                        "example": 3
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/main/songs": {
+            "post": {
+                "tags": [
+                    "Песни"
+                ],
+                "summary": "Добавить песни в выбранный альбом",
+                "operationId": "9dab0ee1ad8887dcda06318d8619e844",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 27
+                                            },
+                                            "title": {
+                                                "type": "string",
+                                                "example": "1-First song"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 202
+                                                    },
+                                                    "title": {
+                                                        "type": "string",
+                                                        "example": "First song"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "timestamp",
+                                                        "example": null
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "timestamp",
+                                                        "example": null
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "timestamp",
+                                                        "example": null
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Исполнители",
+            "description": "Исполнители"
+        },
+        {
+            "name": "Альбомы",
+            "description": "Альбомы"
+        },
+        {
+            "name": "Песни",
+            "description": "Песни"
+        }
+    ]
+}
