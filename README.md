@@ -17,7 +17,7 @@ Swagger API документация для Postman расположена по 
 
 ## Инструкция по запуску
 1. Установите веб-сервер (Apache2, Nginx), PHP, MySQL.<br>
-Cкопируйте код проекта Git в корневую дирреторию сайта (например, /var/www/html):<br>
+Cкопируйте код проекта Git в корневую директорию сайта (например, /var/www/html):<br>
     `cd /var/www/html`<br>
     `git clone https://github.com/sup5213/my-qortex-test.git`
 
