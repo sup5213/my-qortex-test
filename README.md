@@ -1,42 +1,41 @@
 ## О проекте
-
-Этот проект представляет собой результат выполнения тестового задания на позицию "Разработчик Laravel" в компании Qortex. В рамках этого задания был собран с помощью Laravel каталог исполнителей и их альбомов с песнями такой структуры:
-    Исполнитель
-        -Название
-    Альбом
-        -Исполнитель
-        -Год выпуска
-    Песня
-        -Название
-        -Порядковый номер в альбоме (номер трека)
-Одна и та же песня может быть включена в несколько альбомов, но под разными порядковыми номерами.
+&emsp;Этот проект представляет собой результат выполнения тестового задания на позицию "Разработчик Laravel" в компании Qortex. В рамках этого задания был собран с помощью Laravel каталог исполнителей и их альбомов с песнями такой структуры:       
+    **Исполнитель**<br>
+        &emsp;-Название<br>
+    **Альбом**<br>
+        &emsp;-Исполнитель<br>
+        &emsp;-Год выпуска<br>
+    **Песня**<br>
+        &emsp;-Название<br>
+        &emsp;-Порядковый номер в альбоме (номер трека)<br>
+&emsp;Одна и та же песня может быть включена в несколько альбомов, но под разными порядковыми номерами.  
 В качестве площадки для демонстрации API подключен Swagger. 
 Проект демонстрирует навыки работы с фреймворком Laravel, знание современных подходов к разработке веб-приложений и умение решать задачи в соответствии с требованиями заказчика. :-)
 
-Рабочая версия проекта расположена на виртуальной машине по адресу http://51.250.26.94/
+Рабочая версия проекта расположена на виртуальной машине по адресу http://51.250.26.94/ <br> 
 Swagger API документация для Postman расположена по адресу http://51.250.26.94/api/documentation
 
 ## Инструкция по запуску
-1 Установите веб-сервер (Apache2, Nginx), PHP, MySQL. 
-Cкопируйте код проекта Git в корневую дирреторию сайта (например, /var/www/html):
+1. Установите веб-сервер (Apache2, Nginx), PHP, MySQL.<br>
+Cкопируйте код проекта Git в корневую дирреторию сайта (например, /var/www/html):<br>
+    `cd /var/www/html`<br>
+    `git clone https://github.com/sup5213/my-qortex-test.git`
 
-    cd /var/www/html
-    git clone https://github.com/sup5213/my-qortex-test.git
+2. Установите Composer<br>
+    `cd /var/www/html/my-qortex-test`<br>
+    `composer install`
 
-2 Установите Composer
-    
-    cd /var/www/html/my-qortex-test
-    composer install
-
-3 Создайте БД и пользовтаеля
-    mysql -u root -p
+3. Создайте БД и пользовтаеля<br>
+    `mysql -u root -p`<br>
+   ```
         CREATE DATABASE qortex_test;
         CREATE USER 'testuser'@'localhost' 
         IDENTIFIED BY '1234';
         GRANT ALL ON qortex_test.* TO 'testuser'@'localhost';
         FLUSH PRIVILEGES;QUIT;
 
-4 Скопируйте .env.example в .env и настройте параметры подключения к БД
+4. Скопируйте .env.example в .env и настройте параметры подключения к БД<br>
+    ```
     APP_NAME=Qortex_trial
     APP_ENV=local
     APP_KEY=
@@ -55,30 +54,30 @@ Cкопируйте код проекта Git в корневую диррето
     DB_PASSWORD=1234
     ...
 
-5 Выполните миграцию
-	cd /var/www/html/my-qortex-test
-	php artisan migrate
-и сгенерируйте ключ приложения:
-	php artisan key:generate
+5. Выполните миграцию<br>
+   `cd /var/www/html/my-qortex-test`<br>
+	`php artisan migrate`<br>
+и сгенерируйте ключ приложения:<br>
+	`php artisan key:generate`
 
-6 Почистите кэши   
-	php artisan route:clear   !!
-	php artisan cache:clear !!
-	php artisan config:cache !!
+6. Почистите кэши<br>
+	`php artisan route:clear`<br>
+	`php artisan cache:clear`<br>
+	`php artisan config:cache`<br>
+<b>P.S.</b><br>
+	**php artisan route:cache --- не выполнять, хотя многие советуют!!!!!!!!**
 
-P.S. 
-	php artisan route:cache --- не выполнять, хотя многие советуют!!!!!!!!
+7. Назначте владельца и права доступа<br>
+	`sudo chown -R www-data:www-data /var/www/html/my-qortex-test`<br>
+	`sudo chmod -R 775 /var/www/html/my-qortex-test/storage`<br>
 
-7 Назначте владельца и права доступа
-	sudo chown -R www-data:www-data /var/www/html/my-qortex-test
-	sudo chmod -R 775 /var/www/html/my-qortex-test/storage 
-
-8 Подредактируйте основной файл конфигурации веб-сервера
-cd /etc/apache2/sites-available
-	000-default.conf
-должен быть:
+8. Подредактируйте основной файл конфигурации веб-сервера<br>
+    `cd /etc/apache2/sites-available`<br>
+	`000-default.conf`<br>
+должен быть:<br>
+```
 <VirtualHost *:80>
-	ServerName my-qortex-test
+    ServerName my-qortex-test
 	ServerAdmin admin@example.com
 	DocumentRoot /var/www/html/my-qortex-test/public
 	<Directory /var/www/html/my-qortex-test/public>
@@ -86,13 +85,15 @@ cd /etc/apache2/sites-available
 		Require all granted
 	</Directory>
 </VirtualHost>
-выполните команды:
-	sudo a2ensite 000-default.conf
-	sudo a2enmod rewrite
-	sudo systemctl restart apache2
-9. Подправьте файл .htaccess в папке public
-    /var/www/html/my-qortex-test/public/.htaccess
+```
+9. Выполните команды:<br>
+	`sudo a2ensite 000-default.conf`<br>
+	`sudo a2enmod rewrite`<br>
+	`sudo systemctl restart apache2`<br>
+10. Подправьте файл .htaccess в папке public<br>
+    `/var/www/html/my-qortex-test/public/.htaccess`<br>
     должен быть:
+```
     <IfModule mod_rewrite.c>
         RewriteEngine On
         RewriteCond %{REQUEST_FILENAME} !-d
@@ -102,7 +103,7 @@ cd /etc/apache2/sites-available
         RewriteCond %{REQUEST_FILENAME} !-f
         RewriteRule ^ index.php [L]
     </IfModule>
-
+```
 10. Добавьте в БД данные из файла database_dump.sql	
 
 11. Зайдите на сайт, вроде должен работать.
