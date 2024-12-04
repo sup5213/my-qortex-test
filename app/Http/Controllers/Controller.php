@@ -15,7 +15,7 @@ use Illuminate\Routing\Controller as BaseController;
 *   path="/api/"
 * ),
 * @OA\Get(
-*   path="/api/main",
+*   path="/api/artist",
 *   summary="Получить список исполнителей",
 *   tags={"Исполнители"},
 *   @OA\Response(
@@ -35,7 +35,7 @@ use Illuminate\Routing\Controller as BaseController;
 *   )
 * ),
 * @OA\Get(
-*   path="/api/main/albums/{artist}",
+*   path="/api/albums/{artist}",
 *   summary="Получить список альбомов конкретного исполнителя",
 *   tags={"Альбомы"},
 *   @OA\Parameter(description="id исполнителя",in="path",name="artist",required=true,example=1),
@@ -58,7 +58,7 @@ use Illuminate\Routing\Controller as BaseController;
 *   )
 * ),
 * @OA\Post(
-*   path="/api/main/albums/create",
+*   path="/api/albums/create",
 *   summary="Создать новый альбом",
 *   tags={"Альбомы"},
 *   @OA\RequestBody(
@@ -90,7 +90,7 @@ use Illuminate\Routing\Controller as BaseController;
 *   )
 * ),
 * @OA\Get(
-*   path="/api/main/songs/{album}",
+*   path="/api/songs/{album}",
 *   summary="Получить список песен из альбома",
 *   tags={"Песни"},
 *   @OA\Parameter(description="id альбома",in="path",name="album",required=true,example=1),
@@ -109,7 +109,7 @@ use Illuminate\Routing\Controller as BaseController;
 *   )
 * ),
 * @OA\Post(
-*   path="/api/main/songs",
+*   path="/api/songs",
 *   summary="Добавить песни в выбранный альбом",
 *   tags={"Песни"},
 *   @OA\RequestBody(

@@ -24,10 +24,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //Route::resource ('Qortex/main', MainController::class);
 
 Route::group(['namespace'=>'Qortex'],function(){
-    Route::get ('/main', 'IndexController');
-    Route::get ('/main/albums/{artist}', 'ShowController');
-    Route::get ('/main/songs/{album}', 'ShowSongsController');
-    Route::post ('/main/albums/create', 'StoreController');
-    Route::post ('/main/songs', 'StoreSongsController');
+    Route::get ('/artist', 'IndexController');
+    Route::get ('/albums/{artist}', 'ShowController');
+    Route::get ('/songs/{album}', 'ShowSongsController');
+    Route::post ('/albums/create', 'StoreController');
+    Route::post ('/songs', 'StoreSongsController');
 });
 

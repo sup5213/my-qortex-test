@@ -13,16 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+  //  return view('welcome');
+//});
 Route::group(['namespace'=>'Qortex'],function(){
-    Route::get ('/main', 'IndexController')->name('qortex.index');
-    Route::get ('/main/albums/{artist}', 'ShowController')->name('qortex.show');
-    Route::get ('/main/songs/{album}', 'ShowSongsController')->name('qortex.showsongs');
+
     Route::get ('/create/album', 'CreateController')->name('qortex.create');
-    Route::post ('/main/albums/create', 'StoreController')->name('qortex.store');
     Route::get ('/create/songs', 'CreateSongsController')->name('qortex.createsongs');
-    Route::post ('/main/songs', 'StoreSongsController')->name('qortex.storesongs');
+    Route::get ('/', 'IndexController')->name('qortex.index');
+    Route::get ('/albums/{artist}', 'ShowController')->name('qortex.show');
+    Route::get ('/songs/{album}', 'ShowSongsController')->name('qortex.showsongs');
+    Route::post ('/albums/create', 'StoreController')->name('qortex.store');
+    Route::post ('/songs', 'StoreSongsController')->name('qortex.storesongs');
 });
 

@@ -6,13 +6,13 @@
     },
     "paths": {
         "/api/": {},
-        "/api/main": {
+        "/api/artist": {
             "get": {
                 "tags": [
                     "Исполнители"
                 ],
                 "summary": "Получить список исполнителей",
-                "operationId": "82ea5e9b89ad47fd82b3287c8748ba5d",
+                "operationId": "0853cf87fb5c6025223601aa58cf37c2",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -57,13 +57,13 @@
                 }
             }
         },
-        "/api/main/albums/{artist}": {
+        "/api/albums/{artist}": {
             "get": {
                 "tags": [
                     "Альбомы"
                 ],
                 "summary": "Получить список альбомов конкретного исполнителя",
-                "operationId": "7510dad8f51115fc723c945c5ba76a75",
+                "operationId": "49094c7f22d6fa144902711ecc0730ef",
                 "parameters": [
                     {
                         "name": "artist",
@@ -125,13 +125,13 @@
                 }
             }
         },
-        "/api/main/albums/create": {
+        "/api/albums/create": {
             "post": {
                 "tags": [
                     "Альбомы"
                 ],
                 "summary": "Создать новый альбом",
-                "operationId": "12058eb0c97c93d07f4db149e9024a89",
+                "operationId": "1969c538a127901fbb663f6ba118742f",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -207,13 +207,13 @@
                 }
             }
         },
-        "/api/main/songs/{album}": {
+        "/api/songs/{album}": {
             "get": {
                 "tags": [
                     "Песни"
                 ],
                 "summary": "Получить список песен из альбома",
-                "operationId": "a9ac842f6fc781b771703e6920d042f8",
+                "operationId": "c9a5fa1f478f2e780330d2305ab57a18",
                 "parameters": [
                     {
                         "name": "album",
@@ -259,13 +259,13 @@
                 }
             }
         },
-        "/api/main/songs": {
+        "/api/songs": {
             "post": {
                 "tags": [
                     "Песни"
                 ],
                 "summary": "Добавить песни в выбранный альбом",
-                "operationId": "9dab0ee1ad8887dcda06318d8619e844",
+                "operationId": "c61d8812e189bbbe425468d81954d251",
                 "requestBody": {
                     "content": {
                         "application/json": {
