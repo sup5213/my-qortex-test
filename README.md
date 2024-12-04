@@ -25,7 +25,7 @@ Cкопируйте код проекта Git в корневую директо
     `cd /var/www/html/my-qortex-test`<br>
     `composer install`
 
-3. Создайте БД и пользовтаеля<br>
+3. Создайте БД и пользователя<br>
     `mysql -u root -p`<br>
    ```
         CREATE DATABASE qortex_test;
@@ -67,7 +67,7 @@ Cкопируйте код проекта Git в корневую директо
 <b>P.S.</b><br>
 	**php artisan route:cache --- не выполнять, хотя многие советуют!!!!!!!!**
 
-7. Назначте владельца и права доступа<br>
+7. Назначьте владельца и права доступа<br>
 	`sudo chown -R www-data:www-data /var/www/html/my-qortex-test`<br>
 	`sudo chmod -R 775 /var/www/html/my-qortex-test/storage`<br>
 
