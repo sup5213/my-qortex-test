@@ -40,7 +40,7 @@ Cкопируйте код проекта Git в корневую директо
     APP_ENV=local
     APP_KEY=
     APP_DEBUG=true
-    APP_URL=http://51.250.26.94/my-qortex-test/public
+    APP_URL=http://<ваш ip>/my-qortex-test/public
 
     LOG_CHANNEL=stack
     LOG_DEPRECATIONS_CHANNEL=null
