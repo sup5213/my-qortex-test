@@ -72,8 +72,10 @@ Cкопируйте код проекта Git в корневую директо
 	`sudo chmod -R 775 /var/www/html/my-qortex-test/storage`<br>
 
 8. Подредактируйте основной файл конфигурации веб-сервера<br>
+Из /etc/apache2/sites-enabled файл 000-default.conf удалите!<br>
     `cd /etc/apache2/sites-available`<br>
 	`000-default.conf`<br>
+ 
 должен быть:<br>
 ```
 <VirtualHost *:80>
