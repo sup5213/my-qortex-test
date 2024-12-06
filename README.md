@@ -76,7 +76,7 @@ Cкопируйте код проекта Git в корневую директо
 	`000-default.conf`<br>
 Из /etc/apache2/sites-enabled файл 000-default.conf удалите!<br>
 
-/etc/apache2/sites-available\000-default.conf должен быть:<br>
+/etc/apache2/sites-available/000-default.conf должен быть:<br>
 ```
 <VirtualHost *:80>
     ServerName my-qortex-test
