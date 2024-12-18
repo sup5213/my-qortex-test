@@ -15,8 +15,8 @@
 Рабочая версия проекта расположена на виртуальной машине по адресу http://51.250.26.94/ <br> 
 Swagger API документация для Postman расположена по адресу http://51.250.26.94/api/documentation
 
-## Инструкция по запуску
-1. Установите веб-сервер (Apache2, Nginx), PHP, MySQL.<br>
+## Инструкция по запуску на Ubuntu
+1. Установите веб-сервер Apache2, PHP (с необходимыми библиотеками), MySQL.<br>
 Cкопируйте код проекта Git в корневую директорию сайта (например, /var/www/html):<br>
     `cd /var/www/html`<br>
     `git clone https://github.com/sup5213/my-qortex-test.git`
@@ -64,8 +64,6 @@ Cкопируйте код проекта Git в корневую директо
 	`php artisan route:clear`<br>
 	`php artisan cache:clear`<br>
 	`php artisan config:cache`<br>
-<b>P.S.</b><br>
-	**php artisan route:cache --- не выполнять, хотя многие советуют!!!!!!!!**
 
 7. Назначьте владельца и права доступа<br>
 	`sudo chown -R www-data:www-data /var/www/html/my-qortex-test`<br>
@@ -106,6 +104,6 @@ Cкопируйте код проекта Git в корневую директо
         RewriteRule ^ index.php [L]
     </IfModule>
 ```
-10. Добавьте в БД данные из файла database_dump.sql	
-
+10. Добавьте в БД данные из файла database_dump.sql<br>
+`mysql -u root qortex_test < ./database_dump.sql`
 11. Зайдите на сайт, вроде должен работать.
